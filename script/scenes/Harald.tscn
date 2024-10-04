@@ -311,6 +311,7 @@ collision_mask = 3
 script = ExtResource("2_trx7j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+visible = false
 position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_uqn6m")
 
@@ -319,19 +320,19 @@ zoom = Vector2(2, 2)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_xfg2h")
-animation = &"idle_back"
+animation = &"idle_front"
 
 [node name="Skeleton" parent="." instance=ExtResource("4_xk206")]
 position = Vector2(-149, 223)
 
-[node name="Node2D" parent="." instance=ExtResource("4_xk206")]
+[node name="Skeleton2" parent="." instance=ExtResource("4_xk206")]
 position = Vector2(-200, -60)
 
-[node name="Node2D2" parent="." instance=ExtResource("4_xk206")]
-position = Vector2(282, -92)
+[node name="Skeleton3" parent="." instance=ExtResource("4_xk206")]
+position = Vector2(391, -80)
 
-[node name="Node2D3" parent="." instance=ExtResource("4_xk206")]
+[node name="Skeleton4" parent="." instance=ExtResource("4_xk206")]
 position = Vector2(142, 241)
 
-[node name="Node2D4" parent="." instance=ExtResource("4_xk206")]
+[node name="Skeleton5" parent="." instance=ExtResource("4_xk206")]
 position = Vector2(362, 138)
