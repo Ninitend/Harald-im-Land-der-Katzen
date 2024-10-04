@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d1q38gjojkf0e" path="res://art/Cliff_Tile.png" id="1_esk3q"]
 [ext_resource type="Texture2D" uid="uid://ckhxx1y0sixt7" path="res://art/Water_Tile.png" id="2_g45eb"]
 [ext_resource type="Texture2D" uid="uid://cj67en8im7hhd" path="res://art/Path_Tile.png" id="3_qx7od"]
-[ext_resource type="Texture2D" uid="uid://cga0d2he8nh15" path="res://art/Outdoor_Decor_Free.png" id="5_lpmpj"]
+[ext_resource type="Texture2D" uid="uid://cga0d2he8nh15" path="res://art/landscape/Outdoor_Decor_Free.png" id="4_isexc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uolg2"]
 texture = ExtResource("1_esk3q")
@@ -71,7 +71,7 @@ texture = ExtResource("3_qx7od")
 2:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k3tpy"]
-texture = ExtResource("5_lpmpj")
+texture = ExtResource("4_isexc")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

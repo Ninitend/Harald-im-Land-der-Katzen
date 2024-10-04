@@ -1,8 +1,8 @@
-[gd_scene load_steps=43 format=4 uid="uid://cfutlsfwmfxry"]
+[gd_scene load_steps=43 format=4 uid="uid://bnhu21d84f8ya"]
 
 [ext_resource type="TileSet" uid="uid://0lcngoivvg0l" path="res://tile-sets/tiles.tres" id="1_67vis"]
 [ext_resource type="Script" path="res://script/player.gd" id="2_jlfus"]
-[ext_resource type="Texture2D" uid="uid://bn8s6j6rpmabe" path="res://art/Player.png" id="3_1moi0"]
+[ext_resource type="Texture2D" uid="uid://bn8s6j6rpmabe" path="res://art/animation-tiles/Player.png" id="3_1moi0"]
 [ext_resource type="PackedScene" uid="uid://c3n5xel6xfx8u" path="res://script/Skeleton.tscn" id="4_po2tx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqn6m"]
