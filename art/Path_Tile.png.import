@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cga0d2he8nh15"
-path="res://.godot/imported/Outdoor_Decor_Free.png-0cabd5df015b6a0953598361d6cb3ff6.ctex"
+uid="uid://cj67en8im7hhd"
+path="res://.godot/imported/Path_Tile.png-c028320dd3ff1e2d1aeceb130cc6c304.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Outdoor_Decor_Free.png"
-dest_files=["res://.godot/imported/Outdoor_Decor_Free.png-0cabd5df015b6a0953598361d6cb3ff6.ctex"]
+source_file="res://art/Path_Tile.png"
+dest_files=["res://.godot/imported/Path_Tile.png-c028320dd3ff1e2d1aeceb130cc6c304.ctex"]
 
 [params]
 

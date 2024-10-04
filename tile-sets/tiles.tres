@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=9 format=3 uid="uid://0lcngoivvg0l"]
 
-[ext_resource type="Texture2D" uid="uid://d1q38gjojkf0e" path="res://Cliff_Tile.png" id="1_esk3q"]
-[ext_resource type="Texture2D" uid="uid://ckhxx1y0sixt7" path="res://Water_Tile.png" id="2_6jn66"]
-[ext_resource type="Texture2D" uid="uid://cj67en8im7hhd" path="res://Path_Tile.png" id="3_qx7od"]
-[ext_resource type="Texture2D" uid="uid://cga0d2he8nh15" path="res://Outdoor_Decor_Free.png" id="5_lpmpj"]
+[ext_resource type="Texture2D" uid="uid://d1q38gjojkf0e" path="res://art/Cliff_Tile.png" id="1_esk3q"]
+[ext_resource type="Texture2D" uid="uid://ckhxx1y0sixt7" path="res://art/Water_Tile.png" id="2_g45eb"]
+[ext_resource type="Texture2D" uid="uid://cj67en8im7hhd" path="res://art/Path_Tile.png" id="3_qx7od"]
+[ext_resource type="Texture2D" uid="uid://cga0d2he8nh15" path="res://art/Outdoor_Decor_Free.png" id="5_lpmpj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uolg2"]
 texture = ExtResource("1_esk3q")
@@ -25,7 +25,7 @@ texture = ExtResource("1_esk3q")
 2:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tvhmj"]
-texture = ExtResource("2_6jn66")
+texture = ExtResource("2_g45eb")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 2.25, 1.125, 8, 8, 8)
 1:0/0 = 0
