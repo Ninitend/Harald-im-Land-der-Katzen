@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Harald"
-run/main_scene="res://script/Harald.tscn"
+run/main_scene="res://script/scenes/Harald.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [input]
