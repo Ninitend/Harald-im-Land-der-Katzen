@@ -88,14 +88,16 @@ texture = ExtResource("4_1rw0t")
 0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, 13, 8, 13, 11, 19, 9, 25, -6, 25, -11, 22, -11, 15)
 6:7/size_in_atlas = Vector2i(2, 2)
 6:7/0 = 0
-6:7/0/y_sort_origin = -12
+6:7/0/y_sort_origin = 5
 6:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, 7, -8, 4, 7, 3, 14, 5, 10, 11, -3, 13, -11, 12)
 8:6/size_in_atlas = Vector2i(2, 3)
 8:6/0 = 0
-8:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 18, -3, 16, 2, 15, 4, 17, 5, 20, 0, 22)
+8:6/0/y_sort_origin = 16
+8:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 18, -3, 16, 2, 16, 4, 17, 5, 20, 0, 22, -4, 21)
 10:7/size_in_atlas = Vector2i(2, 2)
 10:7/0 = 0
-10:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-11, -1, 9, -1, 11, 3, 8, 8, -6, 8, -12, 5)
+10:7/0/y_sort_origin = -1
+10:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-11, -2, 0, -2, 10, -1, 11, 3, 8, 8, -6, 8, -12, 5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k3tpy"]
 texture = ExtResource("4_isexc")
