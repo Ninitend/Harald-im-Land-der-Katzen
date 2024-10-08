@@ -439,7 +439,7 @@ position_smoothing_speed = 3.0
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xfg2h")
-animation = &"idle_front"
+animation = &"death"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 5)
@@ -456,6 +456,9 @@ wait_time = 0.8
 
 [node name="HurtCooldown" type="Timer" parent="."]
 
+[node name="DeathDuration" type="Timer" parent="."]
+wait_time = 0.8
+
 [node name="RayCast" type="RayCast2D" parent="."]
 target_position = Vector2(0, 49)
 collision_mask = 8
@@ -464,3 +467,4 @@ collision_mask = 8
 [connection signal="body_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="HurtCooldown" to="." method="_on_hurt_cooldown_timeout"]
+[connection signal="timeout" from="DeathDuration" to="." method="_on_death_duration_timeout"]
