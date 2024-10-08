@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://brjlcydjy2v5q"]
+[gd_scene load_steps=4 format=4 uid="uid://brjlcydjy2v5q"]
 
 [ext_resource type="TileSet" uid="uid://0lcngoivvg0l" path="res://tile-sets/tiles.tres" id="1_augjw"]
 [ext_resource type="PackedScene" uid="uid://bnhu21d84f8ya" path="res://script/scenes/Harald.tscn" id="1_geg0q"]
+[ext_resource type="PackedScene" uid="uid://c3n5xel6xfx8u" path="res://script/scenes/Skeleton.tscn" id="3_riibc"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -18,4 +19,7 @@ tile_map_data = PackedByteArray("AABrAGoAAwAAAAUAAABvAGsAAwAGAAcAAABzAGoAAwAIAAY
 tile_set = ExtResource("1_augjw")
 
 [node name="Player" parent="." instance=ExtResource("1_geg0q")]
-position = Vector2(1526, 1603)
+position = Vector2(1530, 1602)
+
+[node name="SkeletonNode" parent="." instance=ExtResource("3_riibc")]
+position = Vector2(1361, 1582)

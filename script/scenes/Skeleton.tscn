@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://c3n5xel6xfx8u"]
+[gd_scene load_steps=60 format=3 uid="uid://c3n5xel6xfx8u"]
 
 [ext_resource type="Script" path="res://script/skeleton.gd" id="1_ysk2p"]
 [ext_resource type="Texture2D" uid="uid://dxf0tv0cg5oqs" path="res://art/animation-tiles/Skeleton.png" id="2_q7a8n"]
@@ -420,24 +420,33 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xb76l"]
+size = Vector2(11, 4)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_gcmt1"]
 radius = 139.032
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xb76l"]
-size = Vector2(13, 18)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wij6g"]
 radius = 215.188
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4oniy"]
+size = Vector2(17, 22)
+
+[node name="SkeletonNode" type="Node2D"]
 
 [node name="Skeleton" type="CharacterBody2D" parent="."]
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("1_ysk2p")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Skeleton"]
 sprite_frames = SubResource("SpriteFrames_8euht")
-animation = &"idle_front"
+animation = &"death"
 autoplay = "idle_front"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton"]
+position = Vector2(0.5, 5)
+shape = SubResource("RectangleShape2D_xb76l")
 
 [node name="DetectionArea" type="Area2D" parent="Skeleton"]
 collision_layer = 3
@@ -447,16 +456,25 @@ collision_mask = 3
 visible = false
 shape = SubResource("CircleShape2D_gcmt1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton"]
-visible = false
-position = Vector2(0.5, -2)
-shape = SubResource("RectangleShape2D_xb76l")
-
 [node name="SightRange" type="Area2D" parent="Skeleton"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton/SightRange"]
 visible = false
 shape = SubResource("CircleShape2D_wij6g")
 
+[node name="SkeletonHitbox" type="Area2D" parent="Skeleton"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="Hitbox" type="CollisionShape2D" parent="Skeleton/SkeletonHitbox"]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_4oniy")
+
+[node name="DeathDuration" type="Timer" parent="Skeleton"]
+wait_time = 0.8
+
 [connection signal="body_entered" from="Skeleton/DetectionArea" to="Skeleton" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Skeleton/SightRange" to="Skeleton" method="_on_sight_range_body_exited"]
+[connection signal="body_entered" from="Skeleton/SkeletonHitbox" to="Skeleton" method="_on_skeleton_hitbox_body_entered"]
+[connection signal="body_exited" from="Skeleton/SkeletonHitbox" to="Skeleton" method="_on_skeleton_hitbox_body_exited"]
+[connection signal="timeout" from="Skeleton/DeathDuration" to="Skeleton" method="_on_death_duration_timeout"]
