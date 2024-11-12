@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckhxx1y0sixt7"
-path="res://.godot/imported/Water_Tile.png-ba01c1cb3da1b2565d83f1c61f88eb60.ctex"
+uid="uid://ckix8ejwgyrrd"
+path="res://.godot/imported/trees.png-dd0d3ead2c40f40f3220820f950aa88f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/landscape/Water_Tile.png"
-dest_files=["res://.godot/imported/Water_Tile.png-ba01c1cb3da1b2565d83f1c61f88eb60.ctex"]
+source_file="res://art/landscape/trees.png"
+dest_files=["res://.godot/imported/trees.png-dd0d3ead2c40f40f3220820f950aa88f.ctex"]
 
 [params]
 

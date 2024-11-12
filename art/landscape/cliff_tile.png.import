@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cga0d2he8nh15"
-path="res://.godot/imported/Outdoor_Decor_Free.png-9f3b57dafb2d20ab3fc25412ae3e4bd9.ctex"
+uid="uid://d1q38gjojkf0e"
+path="res://.godot/imported/cliff_tile.png-02ba430932ef0b506fb975ad94da1ed7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/landscape/Outdoor_Decor_Free.png"
-dest_files=["res://.godot/imported/Outdoor_Decor_Free.png-9f3b57dafb2d20ab3fc25412ae3e4bd9.ctex"]
+source_file="res://art/landscape/cliff_tile.png"
+dest_files=["res://.godot/imported/cliff_tile.png-02ba430932ef0b506fb975ad94da1ed7.ctex"]
 
 [params]
 

@@ -1,13 +1,13 @@
 [gd_resource type="TileSet" load_steps=11 format=3 uid="uid://0lcngoivvg0l"]
 
-[ext_resource type="Texture2D" uid="uid://d1q38gjojkf0e" path="res://art/landscape/Cliff_Tile.png" id="1_354bh"]
-[ext_resource type="Texture2D" uid="uid://ckhxx1y0sixt7" path="res://art/landscape/Water_Tile.png" id="2_dtfg0"]
-[ext_resource type="Texture2D" uid="uid://cj67en8im7hhd" path="res://art/landscape/Path_Tile.png" id="3_78dpa"]
-[ext_resource type="Texture2D" uid="uid://ckix8ejwgyrrd" path="res://art/landscape/Trees.png" id="4_1rw0t"]
-[ext_resource type="Texture2D" uid="uid://cga0d2he8nh15" path="res://art/landscape/Outdoor_Decor_Free.png" id="4_isexc"]
+[ext_resource type="Texture2D" uid="uid://d1q38gjojkf0e" path="res://art/landscape/cliff_tile.png" id="1_gch16"]
+[ext_resource type="Texture2D" uid="uid://ckhxx1y0sixt7" path="res://art/landscape/water_tile.png" id="2_vu4bm"]
+[ext_resource type="Texture2D" uid="uid://cj67en8im7hhd" path="res://art/landscape/path_tile.png" id="3_idqpc"]
+[ext_resource type="Texture2D" uid="uid://ckix8ejwgyrrd" path="res://art/landscape/trees.png" id="4_wgkqh"]
+[ext_resource type="Texture2D" uid="uid://cga0d2he8nh15" path="res://art/landscape/outdoor_decor.png" id="5_5ti5i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uolg2"]
-texture = ExtResource("1_354bh")
+texture = ExtResource("1_gch16")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, 8, 5, 5, 8, 5, 8, 0, 3, 3, 0, 8)
 1:0/0 = 0
@@ -39,7 +39,7 @@ texture = ExtResource("1_354bh")
 2:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tvhmj"]
-texture = ExtResource("2_dtfg0")
+texture = ExtResource("2_vu4bm")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 2.25, 1.125, 8, 8, 8)
 1:0/0 = 0
@@ -66,7 +66,7 @@ texture = ExtResource("2_dtfg0")
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(3, -8, 8, -8, 8, 8, 2.875, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t6eot"]
-texture = ExtResource("3_78dpa")
+texture = ExtResource("3_idqpc")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -85,7 +85,7 @@ texture = ExtResource("3_78dpa")
 2:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7b21u"]
-texture = ExtResource("4_1rw0t")
+texture = ExtResource("4_wgkqh")
 0:5/size_in_atlas = Vector2i(3, 4)
 0:5/0 = 0
 0:5/0/y_sort_origin = 13
@@ -104,7 +104,7 @@ texture = ExtResource("4_1rw0t")
 10:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-11, -2, 0, -2, 10, -1, 11, 3, 8, 8, -6, 8, -12, 5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k3tpy"]
-texture = ExtResource("4_isexc")
+texture = ExtResource("5_5ti5i")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
