@@ -4,7 +4,7 @@ class_name Enemy
 const speed = 35
 var distance_to_player = 15
 var player = null
-var health = 2
+var health = 3
 var last_direction = "down"
 
 

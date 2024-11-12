@@ -3,18 +3,15 @@ class_name Player
 
 const SPEED = 130
 var last_direction = "down"
-var attack_range = false    # true if enemy is in hitbox
 var attack_in_progress = false
 var hurt_cooldown = false
-var health = 3
+var health = 4
 
 
 func _physics_process(_delta: float) -> void:
 	movement()
-	update_ray()
+	update_attack_range()
 	attack()
-	hurt()
-
 
 func movement():
 	var direction_x = Input.get_axis("walk_left", "walk_right")
@@ -71,7 +68,7 @@ func movement():
 	move_and_slide()
 
 func attack():
-	if Input.is_action_just_pressed("attack") and attack_in_progress == false:
+	if Input.is_action_just_pressed("attack") and not attack_in_progress:
 		attack_in_progress = true
 		$AttackCooldown.start()
 		match last_direction:
@@ -85,11 +82,11 @@ func attack():
 			"right":
 				$Sprite.flip_h = false
 				$Sprite.play("attack_side")
-		if $RayCast.get_collider() is Enemy:
+		for body in $AttackRange.get_overlapping_areas():
 			global.player_attack_success = true
 
 func hurt():
-	if attack_range and hurt_cooldown == false:
+	if not hurt_cooldown:
 		print("aua")
 		health -= 1
 		hurt_cooldown = true
@@ -99,29 +96,22 @@ func hurt():
 			$Sprite.play("death")
 			$DeathDuration.start()
 
-func update_ray():
+func update_attack_range():
 	match last_direction:
 		"up":
-			$RayCast.rotation_degrees = 180
+			$AttackRange/Cone.rotation_degrees = 180 +90
 		"left":
-			$RayCast.rotation_degrees = 90
+			$AttackRange/Cone.rotation_degrees = 90+90
 		"down":
-			$RayCast.rotation_degrees = 0
+			$AttackRange/Cone.rotation_degrees = 0+90
 		"right":
-			$RayCast.rotation_degrees = 270
-		_:
-			pass
+			$AttackRange/Cone.rotation_degrees = 270+90
 
 
 # ---------- Node Signals --------------------
 func _on_player_hitbox_body_entered(body: Node2D) -> void:
 	if body is Enemy:
-		attack_range = true
-
-
-func _on_player_hitbox_body_exited(body: Node2D) -> void:
-	if body is Enemy:
-		attack_range = false
+		hurt()
 
 
 func _on_attack_cooldown_timeout() -> void:
