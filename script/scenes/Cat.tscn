@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cctg8c2qh4ajo"]
+[gd_scene load_steps=12 format=3 uid="uid://cctg8c2qh4ajo"]
 
 [ext_resource type="Script" path="res://script/cat.gd" id="1_jt152"]
 [ext_resource type="Texture2D" uid="uid://nuasubsxrak8" path="res://art/animation-tiles/cats/Cat V2.png" id="2_hi8rl"]
@@ -64,15 +64,27 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ly5a"]
 size = Vector2(18, 7)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ye4m0"]
+radius = 68.0661
+
 [node name="Cat" type="CharacterBody2D"]
 script = ExtResource("1_jt152")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 0)
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_34lyn")
-animation = &"walk"
-frame = 2
+animation = &"idle"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 11)
+position = Vector2(1, 7)
+scale = Vector2(0.7, 0.7)
 shape = SubResource("RectangleShape2D_2ly5a")
+
+[node name="SightRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SightRange"]
+shape = SubResource("CircleShape2D_ye4m0")
+
+[connection signal="body_entered" from="SightRange" to="." method="_on_sight_range_body_entered"]
+[connection signal="body_exited" from="SightRange" to="." method="_on_sight_range_body_exited"]

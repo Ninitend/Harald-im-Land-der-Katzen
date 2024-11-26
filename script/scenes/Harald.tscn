@@ -435,15 +435,6 @@ collision_layer = 3
 collision_mask = 3
 script = ExtResource("2_trx7j")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.2, 2.2)
-limit_left = 100
-limit_top = -100
-limit_right = 100
-limit_bottom = -100
-position_smoothing_enabled = true
-position_smoothing_speed = 3.0
-
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xfg2h")
 animation = &"attack_side"
@@ -479,6 +470,11 @@ polygon = PackedVector2Array(30, 20, 30, -20, -10, -5, -10, 5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 position = Vector2(1, -3)
 shape = SubResource("CircleShape2D_mosj4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_player_hitbox_body_exited"]
