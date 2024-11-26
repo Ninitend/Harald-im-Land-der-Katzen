@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://cctg8c2qh4ajo"]
+
+[ext_resource type="Script" path="res://script/cat.gd" id="1_jt152"]
+[ext_resource type="Texture2D" uid="uid://nuasubsxrak8" path="res://art/animation-tiles/cats/Cat V2.png" id="2_hi8rl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f5xe"]
+atlas = ExtResource("2_hi8rl")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cmbr"]
+atlas = ExtResource("2_hi8rl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0p41"]
+atlas = ExtResource("2_hi8rl")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xng8a"]
+atlas = ExtResource("2_hi8rl")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sgnw"]
+atlas = ExtResource("2_hi8rl")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62cut"]
+atlas = ExtResource("2_hi8rl")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_34lyn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f5xe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cmbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f5xe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0p41")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xng8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sgnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62cut")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ly5a"]
+size = Vector2(18, 7)
+
+[node name="Cat" type="CharacterBody2D"]
+script = ExtResource("1_jt152")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 0)
+sprite_frames = SubResource("SpriteFrames_34lyn")
+animation = &"walk"
+frame = 2
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_2ly5a")
