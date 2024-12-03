@@ -432,51 +432,49 @@ radius = 215.188
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4oniy"]
 size = Vector2(17, 22)
 
-[node name="SkeletonNode" type="Node2D"]
-
-[node name="Skeleton" type="CharacterBody2D" parent="."]
+[node name="Skeleton" type="CharacterBody2D"]
 collision_layer = 9
 collision_mask = 9
 script = ExtResource("1_ysk2p")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Skeleton"]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8euht")
 animation = &"death"
 autoplay = "idle_front"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 5)
 shape = SubResource("RectangleShape2D_xb76l")
 
-[node name="DetectionArea" type="Area2D" parent="Skeleton"]
+[node name="DetectionArea" type="Area2D" parent="."]
 visible = false
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton/DetectionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 visible = false
 shape = SubResource("CircleShape2D_gcmt1")
 
-[node name="SightRange" type="Area2D" parent="Skeleton"]
+[node name="SightRange" type="Area2D" parent="."]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton/SightRange"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SightRange"]
 visible = false
 shape = SubResource("CircleShape2D_wij6g")
 
-[node name="SkeletonHitbox" type="Area2D" parent="Skeleton"]
+[node name="SkeletonHitbox" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 16
 
-[node name="Hitbox" type="CollisionShape2D" parent="Skeleton/SkeletonHitbox"]
+[node name="Hitbox" type="CollisionShape2D" parent="SkeletonHitbox"]
 position = Vector2(0.5, -2)
 shape = SubResource("RectangleShape2D_4oniy")
 
-[node name="DeathDuration" type="Timer" parent="Skeleton"]
+[node name="DeathDuration" type="Timer" parent="."]
 wait_time = 0.8
 
-[connection signal="body_entered" from="Skeleton/DetectionArea" to="Skeleton" method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="Skeleton/SightRange" to="Skeleton" method="_on_sight_range_body_exited"]
-[connection signal="body_entered" from="Skeleton/SkeletonHitbox" to="Skeleton" method="_on_skeleton_hitbox_body_entered"]
-[connection signal="body_exited" from="Skeleton/SkeletonHitbox" to="Skeleton" method="_on_skeleton_hitbox_body_exited"]
-[connection signal="timeout" from="Skeleton/DeathDuration" to="Skeleton" method="_on_death_duration_timeout"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="SightRange" to="." method="_on_sight_range_body_exited"]
+[connection signal="body_entered" from="SkeletonHitbox" to="." method="_on_skeleton_hitbox_body_entered"]
+[connection signal="body_exited" from="SkeletonHitbox" to="." method="_on_skeleton_hitbox_body_exited"]
+[connection signal="timeout" from="DeathDuration" to="." method="_on_death_duration_timeout"]
