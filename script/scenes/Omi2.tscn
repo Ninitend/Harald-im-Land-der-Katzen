@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://be8pqw8n13yjy"]
+
+[ext_resource type="Texture2D" uid="uid://yo4h4xr0p74k" path="res://art/animation-tiles/Omi.png" id="1_7ykqc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqn6m"]
+size = Vector2(13, 4)
+
+[node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 3
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 5)
+shape = SubResource("RectangleShape2D_uqn6m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7ykqc")
