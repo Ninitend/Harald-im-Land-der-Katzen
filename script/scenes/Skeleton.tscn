@@ -1,6 +1,6 @@
 [gd_scene load_steps=60 format=3 uid="uid://c3n5xel6xfx8u"]
 
-[ext_resource type="Script" path="res://script/skeleton.gd" id="1_ysk2p"]
+[ext_resource type="Script" uid="uid://bi0kqbb016pvr" path="res://script/skeleton.gd" id="1_ysk2p"]
 [ext_resource type="Texture2D" uid="uid://dxf0tv0cg5oqs" path="res://art/animation-tiles/Skeleton.png" id="2_q7a8n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kxmoc"]

@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://brjlcydjy2v5q"]
+[gd_scene load_steps=6 format=4 uid="uid://brjlcydjy2v5q"]
 
 [ext_resource type="TileSet" uid="uid://0lcngoivvg0l" path="res://tile-sets/tiles.tres" id="1_augjw"]
 [ext_resource type="PackedScene" uid="uid://bnhu21d84f8ya" path="res://script/scenes/Player.tscn" id="1_geg0q"]
-[ext_resource type="PackedScene" uid="uid://ccoeigpv1yljw" path="res://script/scenes/Omi.tscn" id="4_dpne2"]
+[ext_resource type="PackedScene" uid="uid://bjbgnuj5al4ur" path="res://script/scenes/textbox.tscn" id="3_7air2"]
 [ext_resource type="PackedScene" uid="uid://cctg8c2qh4ajo" path="res://script/scenes/Cat.tscn" id="4_mwadl"]
 [ext_resource type="PackedScene" uid="uid://c3n5xel6xfx8u" path="res://script/scenes/Skeleton.tscn" id="5_cg6gs"]
-[ext_resource type="PackedScene" uid="uid://be8pqw8n13yjy" path="res://script/scenes/Omi2.tscn" id="6_cmunb"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -24,18 +23,14 @@ tile_set = ExtResource("1_augjw")
 
 [node name="Player" parent="." instance=ExtResource("1_geg0q")]
 
+[node name="Textbox" parent="Player" instance=ExtResource("3_7air2")]
+
 [node name="Cat" parent="." instance=ExtResource("4_mwadl")]
 position = Vector2(95, 143)
 scale = Vector2(0.6, 0.6)
-
-[node name="Player2" parent="." instance=ExtResource("4_dpne2")]
-position = Vector2(241, 140)
 
 [node name="Skeleton" parent="." instance=ExtResource("5_cg6gs")]
 position = Vector2(-111, 255)
 
 [node name="Skeleton2" parent="." instance=ExtResource("5_cg6gs")]
 position = Vector2(71, 272)
-
-[node name="Player3" parent="." instance=ExtResource("6_cmunb")]
-position = Vector2(203, 141)

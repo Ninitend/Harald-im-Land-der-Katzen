@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjbgnuj5al4ur"]
+
+[ext_resource type="Script" uid="uid://lus2h1f2k82g" path="res://script/scenes/panel.gd" id="1_htalq"]
+
+[node name="Textbox" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+z_index = 5
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = -122.0
+offset_right = -48.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("1_htalq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 15.0
+offset_right = 1048.0
+offset_bottom = 75.0
+text = "Hallo, hier steht ein Text"
