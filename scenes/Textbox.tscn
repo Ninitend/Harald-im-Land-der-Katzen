@@ -1,31 +1,66 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjbgnuj5al4ur"]
+[gd_scene load_steps=3 format=3 uid="uid://cqrdyaxt2xyap"]
 
-[ext_resource type="Script" uid="uid://lus2h1f2k82g" path="res://script/panel.gd" id="1_htalq"]
+[ext_resource type="Script" uid="uid://dkncj3tcpji7d" path="res://script/textbox.gd" id="1_35a5s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yoo5"]
+bg_color = Color(0.194349, 0.194349, 0.194349, 0.568627)
 
 [node name="Textbox" type="CanvasLayer"]
+script = ExtResource("1_35a5s")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-z_index = 5
+[node name="TextboxContainer" type="MarginContainer" parent="."]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 41.0
-offset_top = -122.0
-offset_right = -48.0
-offset_bottom = -33.0
+offset_top = -131.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_vertical = 8
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="Panel" type="Panel" parent="MarginContainer"]
+[node name="Panel" type="Panel" parent="TextboxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3yoo5")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Panel" type="Panel" parent="TextboxContainer/MarginContainer"]
 visible = false
 layout_mode = 2
-script = ExtResource("1_htalq")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 15.0
-offset_right = 1048.0
-offset_bottom = 75.0
-text = "Hallo, hier steht ein Text"
+[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Start" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(22, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "-"
+
+[node name="Label" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(22, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "Text"
+autowrap_mode = 3
+max_lines_visible = 2
+
+[node name="End" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(22, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 28
+text = "v"
