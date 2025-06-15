@@ -1,21 +1,50 @@
 extends CanvasLayer
 
-var tween = create_tween()
-var char_read_rate = 0.05
-
 @onready var textboxContainer = $TextboxContainer
 @onready var start_symbol = $TextboxContainer/MarginContainer/HBoxContainer/Start
 @onready var end_symbol = $TextboxContainer/MarginContainer/HBoxContainer/End
-@onready var textbox_content = $TextboxContainer/MarginContainer/HBoxContainer/Label
+@onready var content = $TextboxContainer/MarginContainer/HBoxContainer/Label
+
+var tween = create_tween()
+var char_read_rate = 0.05
+var current_state = State.Ready
+var text_queue = []
+
+enum State {
+	Ready,
+	Reading,
+	Finished
+}
+
+
 
 func _ready() -> void:
 	hide_texbox()
-	add_text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.")
+	queue_text("1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+	queue_text("2. Irgendwas stimmt da nicht, oder?")
+
+func _process(delta: float) -> void:
+	match current_state:
+		State.Ready:
+			if !text_queue.is_empty():
+				display_text()
+		State.Reading:
+			if Input.is_action_just_pressed("dialogue_enter"):
+				content.visible_ratio = 1.0
+				tween.kill()
+				end_symbol.text = "v"
+				change_state(State.Finished)
+		State.Finished:
+			if Input.is_action_just_pressed("dialogue_enter"):
+				change_state(State.Ready)
+				hide_texbox()
 
 
+func queue_text(next_text):
+	text_queue.push_back(next_text)
 
 func hide_texbox():
-	textbox_content.text = ""
+	content.text = ""
 	start_symbol.text = ""
 	end_symbol.text = ""
 	textboxContainer.hide()
@@ -24,8 +53,26 @@ func show_textbox():
 	start_symbol.text = "-"
 	textboxContainer.show()
 
-func add_text(next_text):
-	textbox_content.text = next_text
+func display_text():
+	var next_text = text_queue.pop_front()
+	content.text = next_text
+	content.visible_ratio = 0.0
+	change_state(State.Reading)
 	show_textbox()
-	textbox_content.visible_ratio = 0.0
-	tween.tween_property(textbox_content, "visible_ratio", 1.0, len(next_text) * char_read_rate)
+	
+	tween.tween_property(content, "visible_ratio", 1.0, len(next_text) * char_read_rate)
+	tween.finished.connect(_on_tween_finished)
+	
+func _on_tween_finished():
+	end_symbol.text = "v"
+	change_state(State.Finished)
+
+func change_state(next_state):
+	current_state = next_state
+	match current_state:
+		State.Ready:
+			print("Textbox: Ready")
+		State.Reading:
+			print("Textbox: Reading")
+		State.Finished:
+			print("Textbox: Finished")
