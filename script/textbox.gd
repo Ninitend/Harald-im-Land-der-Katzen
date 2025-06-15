@@ -21,7 +21,7 @@ enum State {
 func _ready() -> void:
 	hide_texbox()
 	queue_text("1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-	queue_text("2. Irgendwas stimmt da nicht, oder?")
+	#queue_text("2. Irgendwas stimmt da nicht, oder?")
 
 func _process(delta: float) -> void:
 	match current_state:
