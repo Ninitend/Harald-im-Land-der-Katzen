@@ -1,9 +1,12 @@
 extends CanvasLayer
 
+var tween = create_tween()
+var char_read_rate = 0.05
+
 @onready var textboxContainer = $TextboxContainer
 @onready var start_symbol = $TextboxContainer/MarginContainer/HBoxContainer/Start
 @onready var end_symbol = $TextboxContainer/MarginContainer/HBoxContainer/End
-@onready var label = $TextboxContainer/MarginContainer/HBoxContainer/Label
+@onready var textbox_content = $TextboxContainer/MarginContainer/HBoxContainer/Label
 
 func _ready() -> void:
 	hide_texbox()
@@ -12,7 +15,7 @@ func _ready() -> void:
 
 
 func hide_texbox():
-	label.text = ""
+	textbox_content.text = ""
 	start_symbol.text = ""
 	end_symbol.text = ""
 	textboxContainer.hide()
@@ -22,5 +25,7 @@ func show_textbox():
 	textboxContainer.show()
 
 func add_text(next_text):
-	label.text = next_text
+	textbox_content.text = next_text
 	show_textbox()
+	textbox_content.visible_ratio = 0.0
+	tween.tween_property(textbox_content, "visible_ratio", 1.0, len(next_text) * char_read_rate)
