@@ -1,13 +1,13 @@
 extends CanvasLayer
 
-@onready var textboxContainer = $TextboxContainer
-@onready var start_symbol = $TextboxContainer/MarginContainer/HBoxContainer/Start
-@onready var end_symbol = $TextboxContainer/MarginContainer/HBoxContainer/End
+@onready var textbox = $TextboxContainer
+@onready var start_section = $TextboxContainer/MarginContainer/HBoxContainer/Start
+@onready var end_indicator = $TextboxContainer/MarginContainer/HBoxContainer/End
 @onready var content = $TextboxContainer/MarginContainer/HBoxContainer/Label
 
 enum State {
 	Ready,
-	Reading,
+	Writing,
 	Finished
 }
 
@@ -18,7 +18,6 @@ var text_queue = []
 
 
 func _ready() -> void:
-	hide_textbox()
 	queue_text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.")
 	queue_text("Labore et dolore magna aliquyam erat, sed diam voluptua.")
 	queue_text("At vero eos et accusam et justo duo dolores et ea rebum.")
@@ -29,7 +28,7 @@ func _process(_delta: float) -> void:
 		State.Ready:
 			if not text_queue.is_empty():
 				display_text()
-		State.Reading:
+		State.Writing:
 			if Input.is_action_just_pressed("dialogue_enter"):
 				tween.kill()
 				content.visible_ratio = 1.0
@@ -49,21 +48,18 @@ func queue_text(text: String) -> void:
 
 func hide_textbox() -> void:
 	content.text = ""
-	start_symbol.text = ""
-	end_symbol.text = ""
-	textboxContainer.hide()
+	textbox.hide()
 
 
 func show_textbox() -> void:
-	start_symbol.text = "-"
-	textboxContainer.show()
+	textbox.show()
 
 
 func display_text() -> void:
-	change_state(State.Reading)
+	change_state(State.Writing)
 	var next_text = text_queue.pop_front()
 	content.text = next_text
-	end_symbol.text = ""
+	end_indicator.hide()
 	content.visible_ratio = 0.0
 	show_textbox()
 	tween = create_tween()
@@ -72,16 +68,16 @@ func display_text() -> void:
 
 
 func text_finished() -> void:
-	end_symbol.text = "v"
+	end_indicator.show()
 	change_state(State.Finished)
 
 
-func change_state(next_state) -> void:
+func change_state(next_state: State) -> void:
 	current_state = next_state
 	match current_state:
 		State.Ready:
 			print("Textbox: Ready")
-		State.Reading:
+		State.Writing:
 			print("Textbox: Reading")
 		State.Finished:
 			print("Textbox: Finished")
