@@ -18,7 +18,7 @@ var text_queue = []
 
 
 func _ready() -> void:
-	hide_texbox()
+	hide_textbox()
 	queue_text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.")
 	queue_text("Labore et dolore magna aliquyam erat, sed diam voluptua.")
 	queue_text("At vero eos et accusam et justo duo dolores et ea rebum.")
@@ -37,8 +37,8 @@ func _process(_delta: float) -> void:
 		State.Finished:
 			if Input.is_action_just_pressed("dialogue_enter"):
 				if text_queue.is_empty():
+					hide_textbox()
 					change_state(State.Ready)
-					hide_texbox()
 				else:
 					display_text()
 
@@ -47,7 +47,7 @@ func queue_text(text: String) -> void:
 	text_queue.push_back(text)
 
 
-func hide_texbox() -> void:
+func hide_textbox() -> void:
 	content.text = ""
 	start_symbol.text = ""
 	end_symbol.text = ""
@@ -63,6 +63,7 @@ func display_text() -> void:
 	change_state(State.Reading)
 	var next_text = text_queue.pop_front()
 	content.text = next_text
+	end_symbol.text = ""
 	content.visible_ratio = 0.0
 	show_textbox()
 	tween = create_tween()

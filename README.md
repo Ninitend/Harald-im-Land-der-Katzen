@@ -1,2 +1,1 @@
-# Harald-im-Land-der-Katzen
- 
+# Harald im Land der Katzen
