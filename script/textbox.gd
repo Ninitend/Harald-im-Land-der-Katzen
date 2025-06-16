@@ -35,9 +35,12 @@ func _process(delta: float) -> void:
 				end_symbol.text = "v"
 				change_state(State.Finished)
 		State.Finished:
-			if Input.is_action_just_pressed("dialogue_enter"):
-				change_state(State.Ready)
-				hide_texbox()
+			 			if Input.is_action_just_pressed("dialogue_enter"):
+ 				if text_queue.is_empty():
+ 					change_state(State.Ready)
+ 					hide_texbox()
+ 				else:
+ 				 display_text()
 
 
 func queue_text(next_text):
