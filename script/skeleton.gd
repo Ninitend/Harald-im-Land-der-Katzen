@@ -9,9 +9,9 @@ var last_direction = "down"
 
 # Settings
 const speed = 35
-const min_player_distance = 15
-const min_cage_distance = 10
-const max_cage_distance = 40
+const min_player_distance = 20
+const min_cage_distance = 100
+const max_cage_distance = 220
 
 
 func _physics_process(_delta: float) -> void:
@@ -20,23 +20,28 @@ func _physics_process(_delta: float) -> void:
 
  
 func movement():
+	var direction = "down"
+
 	if health <= 0:
 		return
 	
 	if player != null:
-		var direction = global_position.direction_to(player.global_position)
+		direction = global_position.direction_to(player.global_position)
 		if global_position.distance_to(player.global_position) > min_player_distance:
 			velocity = direction * speed
 		else:
 			velocity = Vector2(0, 0)
 
 	if player == null or global_position.distance_to(cage.global_position) > max_cage_distance:
-		var direction = global_position.direction_to(cage.global_position)
+		direction = global_position.direction_to(cage.global_position)
 		if global_position.distance_to(cage.global_position) > min_cage_distance:
 			velocity = direction * speed
 		else:
 			velocity = Vector2(0, 0)
-		player = null
+		if player != null:
+			direction = global_position.direction_to(player.global_position)
+			velocity = Vector2(0, 0)
+
 	
 	if velocity.length() > 1:
 		if abs(direction.x) > abs(direction.y):
@@ -71,7 +76,7 @@ func movement():
 			"down":
 				$Sprite.flip_h = false
 				$Sprite.play("idle_front")
-				
+
 	move_and_slide()
 
 func hurt():
