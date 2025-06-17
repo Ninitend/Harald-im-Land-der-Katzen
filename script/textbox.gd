@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 @onready var textbox = $TextboxContainer
-@onready var start_section = $TextboxContainer/MarginContainer/HBoxContainer/Start
 @onready var end_indicator = $TextboxContainer/MarginContainer/HBoxContainer/End
 @onready var content = $TextboxContainer/MarginContainer/HBoxContainer/Label
 
@@ -16,6 +15,8 @@ var char_read_rate: float = 0.05
 var current_state: State = State.Ready
 var text_queue = []
 
+signal dialogue_start
+signal dialogue_end
 
 func _ready() -> void:
 	queue_text("Hilfe, hilfe, meine Katzen sind von Skeletten entführt und eingesperrt worden!")
@@ -49,10 +50,12 @@ func queue_text(text: String) -> void:
 func hide_textbox() -> void:
 	content.text = ""
 	textbox.hide()
+	dialogue_start.emit()
 
 
 func show_textbox() -> void:
 	textbox.show()
+	dialogue_end.emit()
 
 
 func display_text() -> void:

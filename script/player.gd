@@ -6,9 +6,12 @@ var last_direction = "down"
 var attack_in_progress = false
 var hurt_cooldown = false
 var health = 4
+var movement_disabled = true
 
 
 func _physics_process(_delta: float) -> void:
+	if movement_disabled:
+		return
 	movement()
 	update_attack_range()
 	attack()
