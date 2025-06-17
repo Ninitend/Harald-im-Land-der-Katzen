@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfteofw0jxf45"
-path="res://.godot/imported/Omi_13-15.png-5ef10b14d17945d8c4b00c5eda99a57c.ctex"
+uid="uid://dgiuf7djx1c80"
+path="res://.godot/imported/Oma.png-e2889fc7bf5ea7e9a34fc488224c5867.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/animation-tiles/Omi/Omi_13-15.png"
-dest_files=["res://.godot/imported/Omi_13-15.png-5ef10b14d17945d8c4b00c5eda99a57c.ctex"]
+source_file="res://art/animation-tiles/Oma.png"
+dest_files=["res://.godot/imported/Oma.png-e2889fc7bf5ea7e9a34fc488224c5867.ctex"]
 
 [params]
 
