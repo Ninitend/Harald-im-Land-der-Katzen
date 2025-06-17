@@ -1,11 +1,17 @@
 extends CharacterBody2D
 class_name Enemy
 
-const speed = 35
-var distance_to_player = 15
 var player = null
 var health = 3
 var last_direction = "down"
+
+@onready cage = get_parent()
+
+# Settings
+const speed = 35
+const min_player_distance = 15
+const min_cage_distance = 10
+const max_cage_distance = 40
 
 
 func _physics_process(_delta: float) -> void:
@@ -14,53 +20,58 @@ func _physics_process(_delta: float) -> void:
 
  
 func movement():
-	if player != null and health > 0:
-		var direction = (player.global_position - global_position).normalized()
-		if (player.global_position - global_position).length() < distance_to_player:
-			velocity = Vector2(0, 0)
-		else:
+	if health <= 0:
+		return
+	
+	if player != null:
+		var direction = global_position.direction_to(player.global_position)
+		if global_position.distance_to(player.global_position) > min_player_distance:
 			velocity = direction * speed
-		
+		else:
+			velocity = Vector2(0, 0)
+
+	if player == null or global_position.distance_to(cage.global_position) > max_cage_distance:
+		var direction = global_position.direction_to(cage.global_position)
+		if global_position.distance_to(cage.global_position) > min_cage_distance:
+			velocity = direction * speed
+		else:
+			velocity = Vector2(0, 0)
+		player = null
+	
+	if velocity.length() > 1:
 		if abs(direction.x) > abs(direction.y):
 			if direction.x < 0:
 				last_direction = "left"
-				if health > 0:
-					$Sprite.play('walk_side')
-					$Sprite.flip_h = true
+				$Sprite.play('walk_side')
+				$Sprite.flip_h = true
 			if direction.x > 0:
 				last_direction = "right"
-				if health > 0:
-					$Sprite.play('walk_side')
-					$Sprite.flip_h = false
+				$Sprite.play('walk_side')
+				$Sprite.flip_h = false
 		else:
 			if direction.y < 0:
 				last_direction = "up"
-				if health > 0:
-					$Sprite.play('walk_back')
-					$Sprite.flip_h = false
+				$Sprite.play('walk_back')
+				$Sprite.flip_h = false
 			if direction.y > 0:
 				last_direction = "down"
-				if health > 0:
-					$Sprite.play('walk_front')
-					$Sprite.flip_h = false
-			
+				$Sprite.play('walk_front')
+				$Sprite.flip_h = false
 	else:
-		velocity = Vector2(0, 0)
-		if health > 0:
-			match last_direction:
-				"left":
-					$Sprite.flip_h = true
-					$Sprite.play("idle_side")
-				"right":
-					$Sprite.flip_h = false
-					$Sprite.play("idle_side")
-				"up":
-					$Sprite.flip_h = false
-					$Sprite.play("idle_back")
-				"down":
-					$Sprite.flip_h = false
-					$Sprite.play("idle_front")
-
+		match last_direction:
+			"left":
+				$Sprite.flip_h = true
+				$Sprite.play("idle_side")
+			"right":
+				$Sprite.flip_h = false
+				$Sprite.play("idle_side")
+			"up":
+				$Sprite.flip_h = false
+				$Sprite.play("idle_back")
+			"down":
+				$Sprite.flip_h = false
+				$Sprite.play("idle_front")
+				
 	move_and_slide()
 
 func hurt():
