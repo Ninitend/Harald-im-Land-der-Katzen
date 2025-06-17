@@ -28,7 +28,10 @@ func movement():
 	if player != null:
 		direction = global_position.direction_to(player.global_position)
 		if global_position.distance_to(player.global_position) > min_player_distance:
-			velocity = direction * speed
+			if (global_position + direction * 3).distance_to(cage.global_position) > max_cage_distance:
+				velocity = Vector2(0, 0)
+			else:
+				velocity = direction * speed
 		else:
 			velocity = Vector2(0, 0)
 
@@ -37,10 +40,6 @@ func movement():
 		if global_position.distance_to(cage.global_position) > min_cage_distance:
 			velocity = direction * speed
 		else:
-			velocity = Vector2(0, 0)
-		if player != null:
-			position += direction * 50
-			direction = global_position.direction_to(player.global_position)
 			velocity = Vector2(0, 0)
 
 	
