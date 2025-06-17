@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 @export var cat_color = CatColor.beige
+var cat = preload("res://scenes/Cat.tscn")
 
 enum CatColor {
 	beige = 0,
@@ -19,4 +20,9 @@ func _process(_delta: float) -> void:
 		if child is Enemy:
 			skeletons = true
 	if not skeletons:
+		var new_cat = cat.instantiate()
+		get_tree().root.add_child(new_cat)
+		new_cat.position = global_position
+		new_cat.cat_color = cat_color
+		new_cat.change_color()
 		queue_free()

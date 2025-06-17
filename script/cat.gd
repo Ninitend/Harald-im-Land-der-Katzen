@@ -1,15 +1,32 @@
 extends CharacterBody2D
 class_name Cat
+var color_name = null
 
-enum CatType {OLD, NEW}
+@export var cat_color = CatColor.beige
 
-@export var type: CatType
+enum CatColor {
+	beige = 0,
+	white = 1,
+	gray = 2,
+	brown = 3
+}
 
 func _ready() -> void:
-	if type == CatType.OLD:
-		$Animation.play("idle")
-	else:
-		$Animation.play("idle_new")
+	change_color()
+
+
+func change_color():
+	match cat_color:
+		CatColor.beige:
+			color_name = "beige"
+		CatColor.white:
+			color_name = "white"
+		CatColor.gray:
+			color_name = "gray"
+		CatColor.brown:
+			color_name = "brown"
+	$Animation.play("idle_front_" + color_name)
+
 
 
 func _physics_process(_delta: float) -> void:
@@ -19,7 +36,7 @@ func _physics_process(_delta: float) -> void:
 # ---------- Node Signals --------------------
 func _on_sight_range_body_entered(body: Node2D) -> void:
 	if body is Player:
-		if type == CatType.OLD:
+		if false:
 			$Animation.play("walk")
 		else:
 			$Animation.play("walk_new")
@@ -29,7 +46,7 @@ func _on_sight_range_body_entered(body: Node2D) -> void:
 
 func _on_sight_range_body_exited(body: Node2D) -> void:
 	if body is Player:
-		if type == CatType.OLD:
+		if false:
 			$Animation.play("idle")
 		else:
 			$Animation.play("idle_new")

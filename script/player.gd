@@ -129,7 +129,8 @@ func _on_hurt_cooldown_timeout() -> void:
 
 func _on_death_duration_timeout() -> void:
 	print("Player dead")
-	queue_free()
+	position = Vector2(9,22)
+	health = 4
 
 
 func _on_textbox_dialogue_end() -> void:
