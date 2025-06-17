@@ -5,7 +5,7 @@ var player = null
 var health = 3
 var last_direction = "down"
 
-@onready cage = get_parent()
+@onready var cage = get_parent()
 
 # Settings
 const speed = 35
@@ -39,6 +39,7 @@ func movement():
 		else:
 			velocity = Vector2(0, 0)
 		if player != null:
+			position += direction * 50
 			direction = global_position.direction_to(player.global_position)
 			velocity = Vector2(0, 0)
 
