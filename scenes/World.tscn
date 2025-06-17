@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://brjlcydjy2v5q"]
+[gd_scene load_steps=6 format=4 uid="uid://brjlcydjy2v5q"]
 
 [ext_resource type="TileSet" uid="uid://0lcngoivvg0l" path="res://tile-sets/tiles.tres" id="1_augjw"]
 [ext_resource type="PackedScene" uid="uid://bnhu21d84f8ya" path="res://scenes/Player.tscn" id="1_geg0q"]
+[ext_resource type="PackedScene" uid="uid://c3n5xel6xfx8u" path="res://scenes/Skeleton.tscn" id="3_1lgw5"]
 [ext_resource type="PackedScene" uid="uid://ll6vn2tnyim6" path="res://scenes/House_of_Omi.tscn" id="3_7g83o"]
 [ext_resource type="PackedScene" uid="uid://ds0ps2tro423d" path="res://scenes/Oma.tscn" id="4_d1c63"]
 
@@ -23,6 +24,9 @@ tile_set = ExtResource("1_augjw")
 
 [node name="House" parent="." instance=ExtResource("3_7g83o")]
 position = Vector2(-3, -46)
+
+[node name="Skeleton" parent="House" instance=ExtResource("3_1lgw5")]
+position = Vector2(140, 18)
 
 [node name="Player" parent="." instance=ExtResource("1_geg0q")]
 position = Vector2(8, 22)
