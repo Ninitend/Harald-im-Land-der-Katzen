@@ -4,6 +4,7 @@ class_name Enemy
 var player = null
 var health = 3
 var last_direction = "down"
+var player_attack_success = false
 
 @onready var cage = get_parent()
 
@@ -80,14 +81,15 @@ func movement():
 	move_and_slide()
 
 func hurt():
-	if global.player_attack_success == true:
-		global.player_attack_success = false
+	if player_attack_success == true:
+		player_attack_success = false
 		health -= 1
 		print("Hit")
 		if health <= 0:
 			$Sprite.stop()
 			$Sprite.play("death")
-			$DeathDuration.start()
+			await get_tree().create_timer(0.8).timeout
+			queue_free()
 
 
 # ---------- Node Signals --------------------
@@ -98,16 +100,3 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 
 func _on_sight_range_body_exited(_body: Node2D) -> void:
 	player = null
-
-
-func _on_skeleton_hitbox_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_skeleton_hitbox_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_death_duration_timeout() -> void:
-	print("Skeleton dead")
-	queue_free()

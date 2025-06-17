@@ -446,6 +446,7 @@ position = Vector2(0.5, 5)
 shape = SubResource("RectangleShape2D_xb76l")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 3
 collision_mask = 3
 
@@ -453,6 +454,7 @@ collision_mask = 3
 shape = SubResource("CircleShape2D_gcmt1")
 
 [node name="SightRange" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SightRange"]
 shape = SubResource("CircleShape2D_wij6g")
@@ -465,11 +467,5 @@ collision_mask = 16
 position = Vector2(0.5, -2)
 shape = SubResource("RectangleShape2D_4oniy")
 
-[node name="DeathDuration" type="Timer" parent="."]
-wait_time = 0.8
-
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="SightRange" to="." method="_on_sight_range_body_exited"]
-[connection signal="body_entered" from="SkeletonHitbox" to="." method="_on_skeleton_hitbox_body_entered"]
-[connection signal="body_exited" from="SkeletonHitbox" to="." method="_on_skeleton_hitbox_body_exited"]
-[connection signal="timeout" from="DeathDuration" to="." method="_on_death_duration_timeout"]

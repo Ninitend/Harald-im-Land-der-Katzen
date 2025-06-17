@@ -88,7 +88,7 @@ func attack():
 				$Sprite.flip_h = false
 				$Sprite.play("attack_side")
 		for body in $AttackRange.get_overlapping_areas():
-			global.player_attack_success = true
+			body.get_parent().player_attack_success = true
 
 func hurt():
 	if not hurt_cooldown:
