@@ -19,7 +19,7 @@ signal dialogue_start
 signal dialogue_end
 
 func _ready() -> void:
-	queue_text("Hilfe, hilfe, meine Katzen sind von Skeletten entführt und eingesperrt worden!")
+	queue_text("Hilfe, hilfe, meine Kätzchen sind von Skeletten entführt und eingesperrt worden!")
 	queue_text("Kannst du mir helfen, meine geliebten Kätzchen zu retten?")
 	queue_text("Besiege alle Skelette bei den Käfigen, um sie zu befreien.")
 
@@ -50,12 +50,12 @@ func queue_text(text: String) -> void:
 func hide_textbox() -> void:
 	content.text = ""
 	textbox.hide()
-	dialogue_start.emit()
+	dialogue_end.emit()
 
 
 func show_textbox() -> void:
 	textbox.show()
-	dialogue_end.emit()
+	dialogue_start.emit()
 
 
 func display_text() -> void:

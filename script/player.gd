@@ -10,9 +10,11 @@ var movement_disabled = true
 
 
 func _physics_process(_delta: float) -> void:
-	if movement_disabled:
+	if not movement_disabled:
+		movement()
+	else:    
+		$Sprite.play("idle_front")
 		return
-	movement()
 	update_attack_range()
 	attack()
 
@@ -128,3 +130,11 @@ func _on_hurt_cooldown_timeout() -> void:
 func _on_death_duration_timeout() -> void:
 	print("Player dead")
 	queue_free()
+
+
+func _on_textbox_dialogue_end() -> void:
+	movement_disabled = false
+
+
+func _on_textbox_dialogue_start() -> void:
+	movement_disabled = true

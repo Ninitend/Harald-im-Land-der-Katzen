@@ -438,7 +438,7 @@ script = ExtResource("2_trx7j")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xfg2h")
-animation = &"walk_side"
+animation = &"idle_front"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 5)
@@ -483,3 +483,5 @@ position_smoothing_speed = 3.0
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="HurtCooldown" to="." method="_on_hurt_cooldown_timeout"]
 [connection signal="timeout" from="DeathDuration" to="." method="_on_death_duration_timeout"]
+[connection signal="dialogue_end" from="Textbox" to="." method="_on_textbox_dialogue_end"]
+[connection signal="dialogue_start" from="Textbox" to="." method="_on_textbox_dialogue_start"]
