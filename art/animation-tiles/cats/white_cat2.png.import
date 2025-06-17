@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0e55mlkuh2b8"
-path="res://.godot/imported/brown_cat.png-b5d55a940d86cddb010098e907cc936c.ctex"
+uid="uid://bmbeip2l8njyx"
+path="res://.godot/imported/white_cat2.png-169f2aae9129b9cdf1b02acdc87b5227.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/animation-tiles/cats/brown_cat.png"
-dest_files=["res://.godot/imported/brown_cat.png-b5d55a940d86cddb010098e907cc936c.ctex"]
+source_file="res://art/animation-tiles/cats/white_cat2.png"
+dest_files=["res://.godot/imported/white_cat2.png-169f2aae9129b9cdf1b02acdc87b5227.ctex"]
 
 [params]
 

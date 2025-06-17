@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ddocd8u7h3ry" path="res://script/cat.gd" id="1_jt152"]
 [ext_resource type="Texture2D" uid="uid://nuasubsxrak8" path="res://art/animation-tiles/cats/cat_v2.png" id="2_hi8rl"]
-[ext_resource type="Texture2D" uid="uid://d0e55mlkuh2b8" path="res://art/animation-tiles/cats/brown_cat.png" id="3_utsf6"]
+[ext_resource type="Texture2D" uid="uid://d0e55mlkuh2b8" path="res://art/animation-tiles/cats/brown_cat1.png" id="3_utsf6"]
 [ext_resource type="Texture2D" uid="uid://b2chquex385kr" path="res://art/animation-tiles/cats/beige_cat3.png" id="4_6hiv1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2f5xe"]
