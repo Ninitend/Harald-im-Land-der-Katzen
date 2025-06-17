@@ -18,9 +18,9 @@ var text_queue = []
 
 
 func _ready() -> void:
-	queue_text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.")
-	queue_text("Labore et dolore magna aliquyam erat, sed diam voluptua.")
-	queue_text("At vero eos et accusam et justo duo dolores et ea rebum.")
+	queue_text("Hilfe, hilfe, meine Katzen sind von Skeletten entführt und eingesperrt worden!")
+	queue_text("Kannst du mir helfen, meine geliebten Kätzchen zu retten?")
+	queue_text("Besiege alle Skelette bei den Käfigen, um sie zu befreien.")
 
 
 func _process(_delta: float) -> void:
